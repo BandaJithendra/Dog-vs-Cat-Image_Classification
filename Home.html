@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body{
+            height:100%;
+            width:100%;
+            margin:0;
+        }
+        body{
+            background-image: url("{{url_for('static', filename='/Image/dog_23.jpg')}}");
+            background-size:cover;
+            background-color:cadetblue;
+        }
+        .container{
+            display: flex;
+            justify-content: space-around;
+            padding-top:50px;
+        }
+        form{
+            padding-top:150px;
+        }
+        .img{
+            height:300px;
+            width:300px;
+            border:solid ;
+            border-radius:50px;
+        }
+        .title{
+            height:300px;
+            width:400px;
+        }
+        .input{
+            position:relative;
+            left:42%;
+            font-size:18px;
+        }
+        .file{
+            height:15mm;
+            font-size:15px;
+            font-family:italic;
+        }
+        input#file-upload-button{
+            width:5cm !importent;
+            height:1cm;
+        }
+        .sub{
+            font-size:16px;
+            height:8mm;
+            width:5cm;
+            position: relative;
+            left: 44%;
+            border-radius:10px;
+            font-size:18px;
+            background-color:#c25823;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <Image class="img" src="{{url_for('static', filename='/Image/cat.jpg')}}" alt="Cat">
+        <Image class="title" src="{{url_for('static', filename='/Image/title.png')}}" alt="Cat">
+        <Image class="img" src="{{url_for('static', filename='/Image/dog.jpg')}}" alt="Dog">
+            
+    </div>
+    <form action="/home" method="post">
+        <div class="input">
+            <label>Upload File: </label>
+            <input class="file" type="file" name="file">
+        </div>
+        <input class="sub" type="submit" value="Submit" />
+    </form>
+    
+</body>
+</html>
