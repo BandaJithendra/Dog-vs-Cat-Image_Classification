@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:cadetblue;
+        }
+        .container{
+            padding-top:43px;
+        }
+
+        .img{
+            height:300px;
+            width:300px;
+            position: relative;
+            animation: slider-img 2s;
+            border:solid;
+            border-radius: 50px;
+            left:40%;
+
+        }
+        .label{
+            opacity:1;
+            animation:pop_up_label 4s;
+            text-align:center;
+            font-family:math;
+        }
+
+        @keyframes slider-img {
+            0% {
+                {%if output=="Cat"%}
+                    left: 15%;
+                {%else%}
+                    left:65%;
+                    down:30%;
+                {%endif%}
+            }
+            100% {
+                left: 40%;
+            }
+        }
+        @keyframes pop_up_label{
+            from{
+                opacity:0;
+            }
+            to{
+                opacity:1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {%if output=="Cat"%}
+            <Image class="img" src="{{url_for('static', filename='/Image/cat.jpg')}}" alt="Cat">
+        {%else%}
+            <Image class="img" src="{{url_for('static', filename='/Image/dog.jpg')}}" alt="Cat">
+        {%endif%}
+
+    </div> 
+    <h1 class="label">{{output}}</h1>   
+    
+    
+</body>
+</html>
